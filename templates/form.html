@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book a Ticket</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #8b0000;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    .form-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 form-card">
+      <h1>Book a Ticket</h1>
+      <form action="{{ url_for('generate_qr') }}" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone number</label>
+          <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
+        </div>
+        <div class="mb-3">
+          <label for="start_place" class="form-label">Start Place</label>
+          <input type="text" class="form-control" id="start_place" name="start_place" required>
+        </div>
+        <div class="mb-3">
+          <label for="end_place" class="form-label">End Place</label>
+          <input type="text" class="form-control" id="end_place" name="end_place" required>
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="mb-3">
+          <label for="time" class="form-label">Time</label>
+          <input type="time" class="form-control" id="time" name="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary d-block mx-auto">Generate QR Code</button>
+      </form>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/jquery-3.6.4.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html> 
